@@ -1,16 +1,17 @@
+$dark: #18171d;
+$blue: #58bfcf;
 $white: #fff;
 $purple: #865dcf;
 $purple-dark: #4c3e64;
 $border-color: #222127;
-$background-dark: #18171d;
 
-$purple-gradient: linear-gradient(0deg, #58bfcf 0%, #865dcf 100%);
+$purple-gradient: linear-gradient(0deg, $blue 0%, $purple 100%);
 $purple-gradient-anim: linear-gradient(
   0deg,
-  #58bfcf 0%,
-  #865dcf 33.3333%,
-  #58bfcf 66.6666%,
-  #865dcf 100%
+  $blue 0%,
+  $purple 33.3333%,
+  $blue 66.6666%,
+  $purple 100%
 );
 
 @mixin desktop() {
@@ -406,7 +407,7 @@ $purple-gradient-anim: linear-gradient(
     border: 2px solid $border-color;
     overflow: hidden;
     border-radius: 12px;
-    background-color: $background-dark;
+    background-color: $dark;
 
     &:hover {
       @extend %np-cards-item-hover !optional;
@@ -456,7 +457,7 @@ $purple-gradient-anim: linear-gradient(
     }
   }
   &__image {
-    color: $background-dark;
+    color: $dark;
 
     @include desktop() {
       transition: transform 0.5s ease-out;
@@ -515,7 +516,7 @@ $purple-gradient-anim: linear-gradient(
     }
   }
   &__image {
-    color: $background-dark;
+    color: $dark;
   }
 }
 .just-image {
@@ -591,6 +592,64 @@ $purple-gradient-anim: linear-gradient(
     position: absolute;
     transform: translate(-50%, -50%);
     margin-bottom: 0;
+  }
+}
+.reviews {
+  @include wrapper-inners($width: 100%, $margins: false);
+
+  // &__wrapper {
+  // }
+  &__item {
+    color: #18171d;
+    padding: 2.6rem 3.65rem 3.65rem;
+    max-width: calc(100% - 30px);
+    border-radius: 10px;
+    background-color: $white;
+
+    &:nth-child(2n + 1) {
+      @extend %reviews-odd-item !optional;
+    }
+    @include desktop() {
+      transform: scale(1);
+      transition: transform 0.15s ease-out;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+    }
+
+    @include tablet-small() {
+      @include wrapper-inners($width: 100%, $margins: false);
+    }
+    @include tablet() {
+      padding: 1.7rem 2.45rem 2.3rem;
+    }
+  }
+  &__author {
+    color: $dark;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.222;
+    letter-spacing: -0.02em;
+  }
+  &__position {
+    color: $blue;
+    font-size: 1.28571rem;
+    margin-top: 0.4rem;
+    font-weight: 600;
+    line-height: 1.222;
+    letter-spacing: -0.02em;
+
+    %reviews-odd-item & {
+      color: $purple;
+    }
+  }
+  &__text {
+    margin-top: 1.4rem;
+
+    @include tablet() {
+      margin-top: 0.8rem;
+    }
   }
 }
 
