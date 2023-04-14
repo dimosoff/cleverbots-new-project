@@ -64,6 +64,93 @@
   content: "•";
   position: absolute;
 }
+._text a {
+  color: #865dcf;
+}
+._text a:hover {
+  color: #fff;
+}
+._text picture {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  line-height: 0;
+  border-radius: 15px;
+  vertical-align: middle;
+}
+._text picture img {
+  border-radius: 15px;
+}
+._text table {
+  overflow: hidden;
+  border-radius: 15px;
+  border-collapse: collapse;
+}
+._text table td,
+._text table th {
+  padding: 5px 10px;
+  background-color: #865dcf;
+}
+._text table td:first-child,
+._text table th:first-child {
+  padding-left: 20px;
+}
+@media screen and (max-width: 560px) {
+  ._text table td:first-child,
+  ._text table th:first-child {
+    padding-left: 10px;
+  }
+}
+._text table td:last-child,
+._text table th:last-child {
+  padding-right: 20px;
+}
+@media screen and (max-width: 560px) {
+  ._text table td:last-child,
+  ._text table th:last-child {
+    padding-right: 10px;
+  }
+}
+._text table > :first-child > :first-child td,
+._text table > :first-child > :first-child th {
+  padding-top: 20px;
+}
+._text table > :last-child > :last-child td,
+._text table > :last-child > :last-child th {
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 560px) {
+  ._text table td {
+    font-size: 1rem;
+  }
+}
+._text ._columns {
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+@media screen and (max-width: 560px) {
+  ._text ._columns {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+}
+._text ._columns > * {
+  color: #000;
+  display: block;
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  background-color: #fff;
+}
+._text ._columns > * + *,
+._text ._columns > * > * + * {
+  margin-top: 1.35em;
+}
+._text ._columns > * > :first-child {
+  color: #58bfcf;
+  font-weight: 600;
+}
 
 ._gradient {
   padding: 1.8rem 6.8rem 2.6rem;
@@ -223,12 +310,6 @@
 .new-project ._full {
   flex: 1 1 calc(100% - 30px);
   max-width: calc(100% - 30px);
-}
-.new-project a {
-  color: #865dcf;
-}
-.new-project a:hover {
-  color: #fff;
 }
 
 .featurettes {
