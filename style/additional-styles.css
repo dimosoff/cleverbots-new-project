@@ -844,6 +844,111 @@
   position: absolute;
 }
 
+.development-steps__items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -30px;
+  margin-left: -30px;
+  counter-reset: dev-steps;
+}
+.development-steps__items > * {
+  flex: 1 1 calc(100% - 30px);
+  max-width: calc(100% - 30px);
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.development-steps__tab {
+  color: #fff;
+  width: 100%;
+  border: none;
+  display: flex;
+  padding: 1.5rem 4.8125rem;
+  position: relative;
+  font-size: 24px;
+  text-align: left;
+  line-height: 1.2;
+  font-weight: 500;
+  align-items: center;
+  border-radius: 10px;
+  background-image: linear-gradient(0deg, #58bfcf 0%, #865dcf 100%);
+}
+@media screen and (max-width: 1050px) and (min-width: 720.02px) {
+  .development-steps__tab {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .development-steps__tab {
+    font-size: 16px;
+  }
+}
+.development-steps__item:nth-child(2n+1) .development-steps__tab {
+  background-image: linear-gradient(-90deg, #58bfcf 0%, #865dcf 100%);
+}
+.development-steps__item:nth-child(2n) .development-steps__tab {
+  background-image: linear-gradient(0deg, #865dcf 0%, #58bfcf 100%);
+}
+.development-steps__tab::before {
+  content: counter(dev-steps) ".";
+  margin-right: 0.3em;
+  counter-increment: dev-steps;
+}
+.development-steps__tab[data-toggle]::after {
+  top: 0;
+  right: 4.8125rem;
+  bottom: 0;
+  width: 0.625em;
+  height: 0.625em;
+  margin: auto;
+  content: "";
+  display: block;
+  position: absolute;
+  transform: translateY(-25%) rotate(135deg) scaleY(-1);
+  transition: 0.25s;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
+.development-steps__tab[aria-expanded=true]::after {
+  transform: translateY(25%) rotate(135deg) scaleX(-1);
+}
+.development-steps__tabpanel {
+  opacity: 0;
+  display: grid;
+  overflow: hidden;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s, opacity 0.3s, visibility 0.3s;
+  grid-template-rows: 0fr;
+}
+.development-steps__tabpanel.active {
+  opacity: 1;
+  visibility: visible;
+  grid-template-rows: 1fr;
+}
+.development-steps__grid-container {
+  overflow: hidden;
+}
+.development-steps__content {
+  border: 3px solid transparent;
+  padding: 0 4.8125rem 2.48rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background-clip: padding-box;
+  background-color: #18171d;
+}
+.development-steps__content::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: -3px;
+  content: "";
+  z-index: -1;
+  position: absolute;
+  border-radius: inherit;
+  background-image: linear-gradient(0deg, #865dcf 0%, #58bfcf 100%);
+}
+
 @keyframes grad-anim {
   0% {
     background-position: center top;

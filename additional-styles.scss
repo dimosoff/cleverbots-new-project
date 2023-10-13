@@ -6,6 +6,8 @@ $purple-dark: #4c3e64;
 $border-color: #222127;
 
 $purple-gradient: linear-gradient(0deg, $blue 0%, $purple 100%);
+$purple-gradient1: linear-gradient(-90deg, $blue 0%, $purple 100%);
+$purple-gradient2: linear-gradient(0deg, $purple 0%, $blue 100%);
 $purple-gradient-anim: linear-gradient(
   0deg,
   $blue 0%,
@@ -811,6 +813,124 @@ $purple-gradient-anim: linear-gradient(
       content: "";
       display: block;
       position: absolute;
+    }
+  }
+}
+.development-steps {
+  $padding-x: 4.8125rem;
+
+  &__items {
+    @include wrapper(100%, 30px, 30px);
+    counter-reset: dev-steps;
+  }
+  &__item {
+    &:nth-child(2n) {
+      @extend %add-item-even !optional;
+    }
+    &:nth-child(2n + 1) {
+      @extend %add-item-odd !optional;
+    }
+  }
+  &__tab {
+    color: $white;
+    width: 100%;
+    border: none;
+    display: flex;
+    padding: 1.5rem $padding-x;
+    position: relative;
+    font-size: 24px;
+    text-align: left;
+    line-height: 1.2;
+    font-weight: 500;
+    align-items: center;
+    border-radius: 10px;
+    background-image: $purple-gradient;
+
+    // @include desktop() {
+    //   transition: color 0.3s;
+
+    //   &:hover {
+    //     color: $purple-dark;
+    //   }
+    // }
+    @include tablet-only() {
+      font-size: 20px;
+    }
+    @include mobile() {
+      font-size: 16px;
+    }
+
+    %add-item-odd & {
+      background-image: $purple-gradient1;
+    }
+    %add-item-even & {
+      background-image: $purple-gradient2;
+    }
+
+    &::before {
+      content: counter(dev-steps) ".";
+      margin-right: 0.3em;
+      counter-increment: dev-steps;
+    }
+    &[data-toggle]::after {
+      top: 0;
+      right: $padding-x;
+      bottom: 0;
+      width: 0.625em;
+      height: 0.625em;
+      margin: auto;
+      content: "";
+      display: block;
+      position: absolute;
+      transform: translateY(-25%) rotate(135deg) scaleY(-1);
+      transition: .25s;
+      border-right: 3px solid $white;
+      border-bottom: 3px solid $white;
+    }
+
+    &[aria-expanded="true"] {
+      // color: $purple;
+      // border-radius: 5px 5px 0 0;
+
+      &::after {
+        transform: translateY(25%) rotate(135deg) scaleX(-1);;
+      }
+    }
+  }
+  &__tabpanel {
+    opacity: 0;
+    display: grid;
+    overflow: hidden;
+    visibility: hidden;
+    transition: grid-template-rows 0.3s, opacity 0.3s, visibility 0.3s;
+    grid-template-rows: 0fr;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      grid-template-rows: 1fr;
+    }
+  }
+  &__grid-container {
+    overflow: hidden;
+  }
+  &__content {
+    border: 3px solid transparent;
+    padding: 0 $padding-x 2.48rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    background-clip: padding-box;
+    background-color: $dark;
+
+    &::before {
+      top: 0; right: 0; bottom: 0; left: 0;
+      margin: -3px;
+      content: '';
+      z-index: -1;
+      position: absolute;
+      border-radius: inherit;
+      background-image: $purple-gradient2;
     }
   }
 }
