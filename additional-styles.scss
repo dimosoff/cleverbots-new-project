@@ -331,10 +331,7 @@ $purple-gradient-anim: linear-gradient(
         margin-top: $new-project-top-tablet;
       }
       @include tablet-small() {
-        @include wrapper-inners(
-          $width: 100%,
-          $top: $new-project-top-tablet-small
-        );
+        @include wrapper-inners($width: 100%, $top: $new-project-top-tablet-small);
       }
     }
   }
@@ -385,8 +382,7 @@ $purple-gradient-anim: linear-gradient(
     border-radius: 8px;
     background-color: $white;
   }
-  // &__image {
-  // }
+  // &__image {}
   &__text {
     font-size: 1rem;
     text-align: center;
@@ -1050,6 +1046,90 @@ $purple-gradient-anim: linear-gradient(
     @include mobile() {
       font-size: 14px;
     }
+  }
+}
+.prices {
+  &__items {
+    text-align: center;
+    justify-content: space-evenly;
+    @include wrapper(33.3333%);
+  }
+  &__item {
+    @include tablet-only() {
+      @include wrapper-inners($width: 50%, $margins: false);
+    }
+    @include tablet-small-only() {
+      @include wrapper-inners($width: 50%, $margins: false);
+    }
+    @include mobile() {
+      @include wrapper-inners($width: 100%, $top: 20px);
+    }
+
+    &:first-child {
+      @extend %prices-item-first !optional;
+    }
+    &:last-child {
+      @extend %prices-item-last !optional;
+    }
+  }
+  &__title {
+    color: inherit;
+    padding: 20px 30px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1875;
+    letter-spacing: 0.005em;
+    background-color: $purple;
+    background-image: $purple-gradient;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+    @include tablet-only() {
+      font-size: 26px;
+    }
+    @include tablet-small-only() {
+      font-size: 24px;
+    }
+    @include mobile() {
+      padding: 15px 20px;
+      font-size: 22px;
+    }
+
+    // %prices-item-first & {
+    //   border-top-left-radius: 30px;
+    // }
+    // %prices-item-last & {
+    //   border-top-right-radius: 30px;
+    // }
+  }
+  &__value {
+    color: $purple;
+    padding: 30px 30px;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1875;
+    letter-spacing: 0.005em;
+    background-color: $white;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    @include tablet-only() {
+      font-size: 36px;
+    }
+    @include tablet-small-only() {
+      font-size: 32px;
+    }
+    @include mobile() {
+      padding: 20px 20px;
+      font-size: 28px;
+    }
+
+    // %prices-item-first & {
+    //   border-bottom-left-radius: 30px;
+    // }
+    // %prices-item-last & {
+    //   border-bottom-right-radius: 30px;
+    // }
   }
 }
 
