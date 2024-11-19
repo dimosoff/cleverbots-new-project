@@ -1130,13 +1130,13 @@
   }
 }
 .prices__value {
-  color: #865dcf;
-  padding: 30px 30px;
+  color: #fff;
+  padding: 10px 30px 30px;
   font-size: 42px;
   font-weight: 700;
   line-height: 1.1875;
   letter-spacing: 0.005em;
-  background-color: #fff;
+  background-color: #865dcf;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
