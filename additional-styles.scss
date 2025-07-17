@@ -271,6 +271,8 @@ $purple-gradient-anim: linear-gradient(
   margin-bottom: 1.4286rem;
   letter-spacing: -0.02em;
 
+  @extend %_inner-heading !optional;
+
   // @include tablet-small() {
   //   margin-bottom: 1.1rem;
   // }
@@ -758,8 +760,9 @@ $purple-gradient-anim: linear-gradient(
   &__text {
     padding: 0;
   }
-  &__text-below {
-    margin-top: 1.4286rem;
+  // &__inner-text {}
+  > *:not(%_inner-heading) {
+    margin-bottom: 1.4286rem;
   }
 }
 .image-cards {
