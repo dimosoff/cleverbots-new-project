@@ -78,6 +78,8 @@ $purple-gradient-anim: linear-gradient(
   position: relative;
   max-width: 100%;
 
+  @extend %_image-wrapper !optional;
+
   img {
     position: absolute;
     top: 50%;
@@ -120,6 +122,9 @@ $purple-gradient-anim: linear-gradient(
     li {
       position: relative;
 
+      &:nth-child(n + 2) {
+        margin-top: 0.5em;
+      }
       &::before {
         top: 0.05rem;
         left: -1.05rem;
@@ -575,12 +580,16 @@ $purple-gradient-anim: linear-gradient(
     flex-direction: column;
     background-color: $dark;
 
-    @include tablet() {
-      padding: 1.4rem 2.45rem 2.3rem;
+    @include mobile() {
+      padding: 1.4rem 2rem 2rem;
     }
 
     > *:nth-last-child(n + 2) {
       margin-bottom: 2.1rem;
+
+      @include mobile() {
+        margin-bottom: 1rem;
+      }
 
       %np-cards-small-gap & {
         margin-bottom: 20px;
@@ -748,6 +757,9 @@ $purple-gradient-anim: linear-gradient(
   }
   &__text {
     padding: 0;
+  }
+  &__text-below {
+    margin-top: 1.4286rem;
   }
 }
 .image-cards {
@@ -1361,11 +1373,26 @@ $purple-gradient-anim: linear-gradient(
   }
 }
 .vision {
+  &_primary-background {
+    @extend %vision-primary-background !optional;
+  }
   &__inner {
     border: 1px dotted #707070;
     padding: 40px;
     position: relative;
+    border-radius: 10px;
     background-color: #18171d;
+
+    @include mobile() {
+      padding: 20px;
+    }
+
+    %vision-primary-background & {
+      color: $white;
+      border: 0;
+      padding: 20px;
+      background-color: $purple;
+    }
   }
   // &__items {}
   &__item {
@@ -1375,11 +1402,17 @@ $purple-gradient-anim: linear-gradient(
   }
   // &__text {}
   &__image-wrapper {
-    height: 100%;
-    min-height: 300px;
+    overflow: hidden;
     border-radius: 5px;
+
+    &%_image-wrapper {
+      min-height: 300px;
+    }
   }
-  // &__image {}
+  &__image {
+    width: 100%;
+    vertical-align: middle;
+  }
   &__corner {
     width: 27px;
     height: 27px;
@@ -1444,6 +1477,105 @@ $purple-gradient-anim: linear-gradient(
     %new-project & {
       margin: 0 20px;
       padding-bottom: 0;
+    }
+  }
+}
+.solutions {
+  &__text {
+    margin-bottom: 20px;
+  }
+  &__table {
+    width: 100%;
+    border: 40px solid transparent;
+    overflow: hidden;
+    position: relative;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.375;
+    border-collapse: separate;
+
+    @include mobile() {
+      border-width: 20px;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      content: "";
+      position: absolute;
+      background: $purple-gradient1 center/cover no-repeat transparent;
+      border-radius: 15px;
+    }
+    &::after {
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      z-index: 1;
+      content: "";
+      position: absolute;
+      border-radius: 14px;
+      background-color: $dark;
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      z-index: 2;
+      position: relative;
+    }
+    thead th,
+    thead td {
+      font-weight: 700;
+    }
+    tbody tr {
+      position: relative;
+    }
+    tbody td:first-child,
+    tfoot td:first-child {
+      &::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        content: "";
+        position: absolute;
+        background: $purple-gradient1 center/cover no-repeat transparent;
+        border-radius: 2px;
+      }
+    }
+    td,
+    th {
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      @include mobile() {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      &:nth-child(n + 2) {
+        padding-left: 40px;
+
+        @include mobile() {
+          padding-left: 20px;
+        }
+      }
+    }
+    *:first-child > tr:first-child * {
+      padding-top: 0;
+    }
+    *:last-child > tr:last-child * {
+      padding-bottom: 0;
+    }
+    tbody,
+    tfoot {
+      @include mobile() {
+        font-size: 14px;
+      }
     }
   }
 }
