@@ -1489,7 +1489,8 @@ $purple-gradient-anim: linear-gradient(
   }
   &__table {
     width: 100%;
-    border: 40px solid transparent;
+    border: 0;
+    padding: 40px;
     overflow: hidden;
     position: relative;
     font-size: 16px;
@@ -1498,7 +1499,7 @@ $purple-gradient-anim: linear-gradient(
     border-collapse: separate;
 
     @include mobile() {
-      border-width: 20px;
+      padding: 20px;
     }
 
     &::before {

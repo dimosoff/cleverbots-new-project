@@ -1444,7 +1444,8 @@
 }
 .solutions__table {
   width: 100%;
-  border: 40px solid transparent;
+  border: 0;
+  padding: 40px;
   overflow: hidden;
   position: relative;
   font-size: 16px;
@@ -1454,7 +1455,7 @@
 }
 @media screen and (max-width: 560px) {
   .solutions__table {
-    border-width: 20px;
+    padding: 20px;
   }
 }
 .solutions__table::before {
