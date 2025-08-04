@@ -81,7 +81,7 @@
   content: "";
   display: block;
   position: absolute;
-  background: url("/wp-content/themes/iart_new/images/li-check.svg") center/contain no-repeat transparent;
+  background: url("../wp-content/themes/iart_new/images/li-check.svg") center/contain no-repeat transparent;
   justify-content: center;
 }
 ._text a {
