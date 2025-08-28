@@ -81,7 +81,7 @@
   content: "";
   display: block;
   position: absolute;
-  background: url("../wp-content/themes/iart_new/images/li-check.svg") center/contain no-repeat transparent;
+  background: url("/wp-content/themes/iart_new/images/li-check.svg") center/contain no-repeat transparent;
   justify-content: center;
 }
 ._text a {
@@ -1245,7 +1245,7 @@
 .development-steps__text {
   color: inherit;
   font-size: 16px;
-  margin-top: 0;
+  margin-top: 0 !important;
   font-weight: 400;
   line-height: 1.208;
   letter-spacing: 0.01em;
